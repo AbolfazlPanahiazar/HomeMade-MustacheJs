@@ -26,11 +26,38 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1rem;
+  border-radius: 1rem 1rem 0 0;
   padding: 1rem 0;
 }
 .header__heading {
   font-size: 5rem;
+  font-weight: bold;
+}
+
+.statusbar {
+  background-color: #6dc55d;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 3rem;
+}
+
+.statusbar__button {
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #b0d2d3;
+  transition: all 0.2s;
+}
+.statusbar__button:hover {
+  background-color: #ea5858;
+  color: #ffffff;
+}
+
+.statusbar__member--name {
+  font-size: 3rem;
   font-weight: bold;
 }
 

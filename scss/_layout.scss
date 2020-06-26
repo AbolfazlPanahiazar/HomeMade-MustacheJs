@@ -26,11 +26,21 @@ body {
 .header {
   background-color: #5cc5d8;
   @include flex-center;
-  border-radius: 1rem;
+  border-radius: 1rem 1rem 0 0;
   padding: 1rem 0;
 
   &__heading {
     font-size: 5rem;
     font-weight: bold;
   }
+}
+
+////////////////////////////////
+// ********** Status bar **********
+.statusbar {
+  background-color: #6dc55d;
+  padding: 1rem 0;
+  @include flex-center;
+  justify-content: space-around;
+  font-size: 3rem;
 }
