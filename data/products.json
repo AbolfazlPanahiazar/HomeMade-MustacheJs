@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Sunglasses",
+    "price": "10",
+    "pic": "sunglasses.jpg"
+  },
+  {
+    "name": "Beach bed",
+    "price": "8",
+    "pic": "beachbed.jpg"
+  },
+  {
+    "name": "Beach umbrella",
+    "price": "12",
+    "pic": "beachumbrella.jpg"
+  },
+  {
+    "name": "Sunscreen",
+    "price": "4",
+    "pic": "sunscreen.jpg"
+  },
+  {
+    "name": "Tube",
+    "price": "9",
+    "pic": "tube.jpg"
+  }
+]

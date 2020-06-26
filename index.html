@@ -11,6 +11,8 @@
     <title>MustacheJs store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.js"></script>
     <script defer src="./js/renderer.js"></script>
   </head>
@@ -42,9 +44,9 @@
       <!-- status bar - end -->
 
       <!-- main - start -->
-      <div class="main">
+      <div id="main" class="main">
         <!-- product item -start -->
-        <div class="product">
+        <!-- <div class="product">
           <div class="product__header">
             {{name}}
           </div>
@@ -53,7 +55,7 @@
             Price: {{price}} coins
           </div>
           <button class="product__button">Buy it</button>
-        </div>
+        </div> -->
         <!-- product item -end -->
       </div>
       <!-- main - end -->
