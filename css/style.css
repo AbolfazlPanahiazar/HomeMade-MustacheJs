@@ -60,6 +60,12 @@ body {
   flex-wrap: wrap;
 }
 
+.swal-wide {
+  width: 800px;
+  height: 600px;
+  font-size: 3rem;
+}
+
 .statusbar__button {
   border: none;
   border-radius: 1rem;

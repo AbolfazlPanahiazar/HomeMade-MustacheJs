@@ -1,0 +1,20 @@
+[
+  {
+    "userName": "Abolfazl",
+    "password": "12345",
+    "coins": "100",
+    "basket": []
+  },
+  {
+    "userName": "Farzad",
+    "password": "shami",
+    "coins": "100",
+    "basket": []
+  },
+  {
+    "userName": "Hasan",
+    "password": "14725",
+    "coins": "10",
+    "basket": []
+  }
+]
