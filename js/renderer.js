@@ -20,8 +20,8 @@ function renderProducts(products) {
 // Some base stuff
 let isLoged = false;
 let logedUser;
-
-function renderStatus(users) {
+function renderStatus() {
+  $("#statusbar").html("");
   if (isLoged) {
     const template = `<div class="statusbar__member">
     <span class="statusbar__member--name">UserName: {{userName}} //</span>
@@ -29,18 +29,20 @@ function renderStatus(users) {
   </div>
   <div class="stautsbar__bottons">
     <button class="statusbar__button">Bought Stuff</button>
-    <button class="statusbar__button">Log Out</button>
+    <button id='logOut' class="statusbar__button">Log Out</button>
   </div>`;
 
     for (let user of users) {
       if (user.userName == logedUser) {
         $("#statusbar").append(Mustache.render(template, user));
+        $("#logOut").click(logOutButton);
         break;
       }
     }
   } else {
     const template = $(`<button id="logIn" class="statusbar__button">Log in</button>`);
     $("#statusbar").append(template);
+    $("#logIn").click(loginButton);
   }
 }
 
@@ -51,11 +53,13 @@ $.ajax({
   url: "../data/users.json",
 }).done((response) => {
   users = response;
-  renderStatus(users);
+  renderStatus();
 });
 
 // Log in stuff
-$("#logIn").click(() => {
+$("#logIn").click(loginButton);
+
+function loginButton() {
   Swal.mixin({
     confirmButtonText: "Next &rarr;",
     showCancelButton: true,
@@ -77,6 +81,26 @@ $("#logIn").click(() => {
     .then((result) => {
       let un = result["value"][0];
       let pw = result["value"][1];
-      console.log(un, pw);
+      for (let user of users) {
+        if (user.userName == un && user.passWord == pw) {
+          isLoged = true;
+          logedUser = user.userName;
+          renderStatus();
+          return;
+        }
+      }
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Invalid username or password!",
+        customClass: "swal-wide",
+      });
     });
-});
+}
+
+// log out button
+function logOutButton() {
+  isLoged = false;
+  logedUser = null;
+  renderStatus();
+}

@@ -14,6 +14,7 @@ body {
   background-image: url(../images/background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: top;
 }
 
 .container {
@@ -62,8 +63,8 @@ body {
 
 .swal-wide {
   width: 800px;
-  height: 600px;
-  font-size: 3rem;
+  height: 500px;
+  font-size: 2rem;
 }
 
 .statusbar__button {
