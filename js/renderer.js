@@ -5,16 +5,18 @@ $.ajax({
   url: "../data/products.json",
 }).done((response) => {
   products = response;
-  renderProducts(products);
+  renderProducts();
 });
 
 // Render products fucntion
-function renderProducts(products) {
-  const template = `<div class="product"><div class="product__header">{{name}}</div><img src="./images/products/{{pic}}" alt="product" class="product__img" /><div class="product__price">Price: {{price}} coins</div><button class="product__button">Buy it</button></div>`;
+function renderProducts() {
+  const template = `<div class="product"><div class="product__header">{{name}}</div><img src="./images/products/{{pic}}" alt="product" class="product__img" /><div class="product__price">Price: {{price}} coins</div><button  class="product__button">Buy it</button></div>`;
 
   for (let product of products) {
     $("#main").append(Mustache.render(template, product));
   }
+
+  $(".product__button").click(buyButton);
 }
 
 // Some base stuff
@@ -28,7 +30,6 @@ function renderStatus() {
     <span class="statusbar__member--name">Coins: {{coins}}</span>
   </div>
   <div class="stautsbar__bottons">
-    <button class="statusbar__button">Bought Stuff</button>
     <button id='logOut' class="statusbar__button">Log Out</button>
   </div>`;
 
@@ -103,4 +104,53 @@ function logOutButton() {
   isLoged = false;
   logedUser = null;
   renderStatus();
+}
+
+// but button
+function buyButton() {
+  if (isLoged) {
+    // get user
+    let customer;
+    for (let user of users) {
+      if (user.userName == logedUser) {
+        customer = user;
+        break;
+      }
+    }
+    // Get product
+    let productName = $($(this).parent()[0]).children()[0].innerText;
+    let product;
+    for (let p of products) {
+      if (productName == p.name) {
+        product = p;
+        break;
+      }
+    }
+    // check for having enought money
+    if (+customer.coins < +product.price) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You don't have enogh coins!",
+        customClass: "swal-wide",
+      });
+    } else {
+      customer.coins = String(+customer.coins - +product.price);
+      renderStatus();
+      Swal.fire({
+        icon: "success",
+        title: "congrag...",
+        text: `You bought a ${product.name}`,
+        customClass: "swal-wide",
+      });
+      console.log(`${customer.userName} bought a ${product.name}`);
+    }
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "You should log in first!",
+      customClass: "swal-wide",
+    });
+  }
 }
