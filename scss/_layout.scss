@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: red;
+}
+
+.container {
+  margin: 5rem auto;
+  padding: 0;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+}
+
+////////////////////////////////
+// ********** Header **********
+.header {
+  background-color: #5cc5d8;
+  @include flex-center;
+  border-radius: 1rem;
+  padding: 1rem 0;
+
+  &__heading {
+    font-size: 5rem;
+    font-weight: bold;
+  }
+}
