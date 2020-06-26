@@ -10,7 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>MustacheJs store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.js"></script>
     <script defer src="./js/renderer.js"></script>
@@ -21,7 +20,7 @@
         You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.
       </p>
     <![endif]-->
-    <div class="container">
+    <div class="container row">
       <!-- header - start -->
       <header class="header">
         <h1 class="header__heading">Mustach.js Practicing</h1>
@@ -32,7 +31,8 @@
       <div class="statusbar">
         <!-- <button class="statusbar__button">Log in</button> -->
         <div class="statusbar__member">
-          <span class="statusbar__member--name">UserName: {{username}}</span>
+          <span class="statusbar__member--name">UserName: {{username}} //</span>
+          <span class="statusbar__member--name">Coins: {{conins}}</span>
         </div>
         <div class="stautsbar__bottons">
           <button class="statusbar__button">Bought Stuff</button>
@@ -40,6 +40,23 @@
         </div>
       </div>
       <!-- status bar - end -->
+
+      <!-- main - start -->
+      <div class="main">
+        <!-- product item -start -->
+        <div class="product">
+          <div class="product__header">
+            {{name}}
+          </div>
+          <img src="./images/products/sunglasses.jpg" alt="product" class="product__img" />
+          <div class="product__price">
+            Price: {{price}} coins
+          </div>
+          <button class="product__button">Buy it</button>
+        </div>
+        <!-- product item -end -->
+      </div>
+      <!-- main - end -->
     </div>
   </body>
 </html>
